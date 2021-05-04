@@ -11,7 +11,7 @@
   <div class='nav'>
     <ul class='lists-left'>
       <li><%= link_to '予約', "#", class: "category-list" %></li>
-      <% if user_signed_in? && current_user.id == 1%>
+      <% if user_signed_in?%>
         <li><%= link_to 'スタッフ情報投稿', new_staff_path, class: "brand-list" %></li>
       <% end %>
     </ul>
