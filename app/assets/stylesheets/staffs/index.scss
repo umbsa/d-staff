@@ -15,3 +15,41 @@
   line-height: 1.4;
   font-weight: lighter;
 }
+
+.staff-lists {
+  width: 100vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.staff-lists>.list {
+  width: 37vh;
+  padding: 1vw;
+  background-color: #FFF;
+}
+
+.staff-img-content {
+  position: relative;
+}
+
+.staff-img {
+  width: 33vh;
+  height: 33vh;
+}
+
+.staff-info {
+  background-color: #FFF;
+  color: black;
+  padding: 1vw;
+}
+
+.staff-name {
+  font-size: 2.5vh;
+}
+
+.staff-history {
+  font-size: 1.5vh;
+  display: flex;
+  justify-content: space-between;
+}
