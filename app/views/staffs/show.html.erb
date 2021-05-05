@@ -1,0 +1,37 @@
+<%= render "shared/header" %>
+
+<div class='staff-show'> 
+  <div class='staff-box'>
+    <div class='staff-img-content'>
+      <%= image_tag @staff.image, class:"staff-box-img" %>
+    </div>
+
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">配達員歴</th>
+          <td class="detail-value"><%= @staff.history %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">趣味</th>
+          <td class="detail-value"><%= @staff.hobby %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">コメント</th>
+          <td class="detail-value"><%= @staff.comment %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <%= link_to root_path do %>
+    <div class="comment-btn">
+      <%= image_tag "IMG_1766.PNG" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+      <span>指名して予約<span>
+    </div>
+    <% end %>
+
+  </div>
+
+</div>
+
+<%= render "shared/footer" %>
