@@ -1,6 +1,9 @@
 class Staff < ApplicationRecord
   has_one_attached :image
 
+  has_many :reservations
+
+
   with_options presence: true do
     validates :image
     validates :name
