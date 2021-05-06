@@ -1,16 +1,16 @@
 <%= render "shared/second-header" %>
 
-<%= link_to '予約', new_staff_reservation_path(@staff) %>
 
 <%= month_calendar events: @reservations do |date, reservation| %>
   <%= date.day %>
 
   <% reservation.each do |reservation| %>
-    <div>
-      <%= reservation.title %>
-      <%= reservation.staff.name %>
-      <%= reservation.user.nickname %>様
-    </div>
+    <% if current_user.id == reservation.user_id %>
+      <div>
+        <%= reservation.staff.name %>
+        <%= reservation.user.full_name %>様
+      </div>
+    <% end %>
   <% end %>
 
 <% end %>

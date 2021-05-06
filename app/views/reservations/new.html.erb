@@ -1,25 +1,79 @@
-
+<%= render "shared/second-header" %>
 
 <%= form_with(model: @reservation, url: staff_reservations_path, local: true) do |form| %>
 
-  <div class="title">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+  <div class='form-group2'>
+    <div class= 'form-text-wrap'>
+        <label class="form-text">予約日</label>
+        <div class='input-birth-wrap'>
+          <%= raw sprintf(
+                form.datetime_select(:start_time,
+                  class:'select-birth',
+                  id:"birth-date",
+                  use_month_numbers: true,
+                  prompt:'--',
+                  start_year: 2021,
+                  date_separator: '%s',
+                  datetime_separator: '%s',
+                  time_separator: '%s'),
+                "<p> 年 </p>", "<p> 月 </p>", "<p> 日 </p>", "<p> 時 </p>") + "<p> 分 </p>"%>
+        </div>
+    </div>
   </div>
 
-    <div class="time">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
+    <div class='shipping-address-form'>
+      <h1 class='info-input-haedline'>
+        配送先入力
+      </h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">郵便番号</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= form.text_field :postal_code, class:"input-default", id:"postal-code", placeholder:"例）123-4567", maxlength:"8" %>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">都道府県</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"prefecture"}) %>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">市区町村</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= form.text_field :city, class:"input-default", id:"city", placeholder:"例）横浜市緑区"%>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">番地</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= form.text_field :addresses, class:"input-default", id:"addresses", placeholder:"例）青山1-1-1"%>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">建物名</label>
+          <span class="form-any">任意</span>
+        </div>
+        <%= form.text_field :building, class:"input-default", id:"building", placeholder:"例）柳ビル103"%>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">電話番号</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= form.text_field :phone_number, class:"input-default", id:"phone-number", placeholder:"例）09012345678",maxlength:"11"%>
+      </div>
+    </div>
+    <%# /配送先の入力 %>
 
-  <div class="content">
-    <%= form.label :content %>
-    <%= form.text_field :content %>
-  </div>
-
-
-  <div class="submit">
-    <%= form.submit %>
+  <div class="register-btn2">
+    <%= form.submit '送信',class:"register-red-btn2" %>
   </div>
 
 <% end %>
+
+<%= render "shared/second-footer" %>

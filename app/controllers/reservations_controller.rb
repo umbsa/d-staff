@@ -10,13 +10,17 @@ class ReservationsController < ApplicationController
   end
 
   def create
+    @staff = Staff.find(params[:staff_id])
     @reservation = Reservation.new(reservation_params)
-    @reservation.save
-    redirect_to staff_reservations_path
+    if @reservation.save
+      redirect_to staff_reservations_path
+    else
+      render :new
+    end
   end
 
   private
   def reservation_params
-    params.require(:reservation).permit(:title, :content, :start_time).merge(staff_id: params[:staff_id], user_id: current_user.id)
+    params.require(:reservation).permit(:postal_code, :prefecture_id, :city, :addresses, :building, :phone_number, :start_time).merge(staff_id: params[:staff_id], user_id: current_user.id)
   end
 end
