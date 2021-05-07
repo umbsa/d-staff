@@ -15,4 +15,12 @@ class Reservation < ApplicationRecord
     validates :user_id
   end
 
+  validates_time :start_time, between: ['9:00am', '6:00pm']
+
+  validates :start_time, uniqueness: { message: 'は他のユーザーが予約しています' }
+  validate :date_before_start
+  def date_before_start
+    errors.add(:start_time, "は過去の日付を選択できません") if start_time < Date.today
+  end
+
 end

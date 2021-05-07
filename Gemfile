@@ -63,3 +63,5 @@ gem 'simple_calendar', '~> 2.0'
 gem 'pry-rails'
 
 gem 'active_hash'
+
+gem 'validates_timeliness', '~> 6.0.0.alpha1'

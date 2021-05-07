@@ -2,6 +2,8 @@
 
 <%= form_with(model: @reservation, url: staff_reservations_path, local: true) do |form| %>
 
+  <%= render 'shared/error_messages', model: form.object %>
+
   <div class='form-group2'>
     <div class= 'form-text-wrap'>
         <label class="form-text">予約日</label>
@@ -11,8 +13,10 @@
                   class:'select-birth',
                   id:"birth-date",
                   use_month_numbers: true,
-                  prompt:'--',
-                  start_year: 2021,
+                  start_year: Date.today.year,
+                  end_year: Date.today.year + 1,
+                  minute_step: 15,
+                  default: Date.today + 9.hour,
                   date_separator: '%s',
                   datetime_separator: '%s',
                   time_separator: '%s'),
@@ -75,5 +79,6 @@
   </div>
 
 <% end %>
+
 
 <%= render "shared/second-footer" %>

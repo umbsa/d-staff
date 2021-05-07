@@ -4,9 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :user_staffs
-  has_many :staff, through: :user_staffs
 
+  has_many :verifications
   has_many :reservations
 
   with_options presence: true do

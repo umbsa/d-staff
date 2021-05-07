@@ -5,10 +5,10 @@
   <%= date.day %>
 
   <% reservation.each do |reservation| %>
-    <% if current_user.id == reservation.user_id %>
+    <% if current_user.id == reservation.user_id || current_user.admin %>
       <div>
-        <%= reservation.start_time.hour %>:<%= reservation.start_time.min %>/<%= reservation.staff.name %>
-        /<%= reservation.user.full_name %>様
+        <%= reservation.staff.name %>
+        <%= reservation.user.full_name %>様
       </div>
     <% end %>
   <% end %>

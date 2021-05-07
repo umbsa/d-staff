@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
-    @staff = Staff.find(params[:staff_id])
     # binding.pry
   end
 
@@ -17,6 +16,10 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @staff = Staff.find(params[:staff_id])
   end
 
   private

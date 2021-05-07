@@ -1,6 +1,7 @@
 class Staff < ApplicationRecord
   has_one_attached :image
 
+  has_many :verifications
   has_many :reservations
 
 
