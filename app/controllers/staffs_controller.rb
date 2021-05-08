@@ -1,4 +1,7 @@
 class StaffsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+
+
   def index
     @staffs = Staff.all
   end
@@ -25,4 +28,5 @@ class StaffsController < ApplicationController
   def staff_params
     params.require(:staff).permit(:name, :history, :comment, :hobby, :image)
   end
+
 end
