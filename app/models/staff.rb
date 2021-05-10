@@ -11,4 +11,13 @@ class Staff < ApplicationRecord
     validates :comment
     validates :history
   end
+
+  def self.search(search)
+    if search
+      Staff.where(['name LIKE ?', "%#{search}%"])
+    else
+      Staff.all
+    end
+  end
+
 end

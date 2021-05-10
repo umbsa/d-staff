@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'staffs#index'
   resources :staffs, only: [:index, :new, :create, :show] do
+    collection do
+      get 'search'
+    end
     resources :reservations, only: [:index, :new, :create, :edit]
   end
   resources :verifications, only: :index

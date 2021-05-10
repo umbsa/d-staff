@@ -23,6 +23,10 @@ class StaffsController < ApplicationController
     @staff = Staff.find(params[:id])
   end
 
+  def search
+    @staffs = Staff.search(params[:search])
+  end
+
   private
 
   def staff_params
