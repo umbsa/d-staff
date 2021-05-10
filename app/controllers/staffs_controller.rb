@@ -34,3 +34,4 @@ class StaffsController < ApplicationController
   end
 
 end
+
