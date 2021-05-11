@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
     @staff = Staff.find(params[:staff_id])
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
-      VerificationMailer.email_to_users(@user).deliver
+      VerificationMailer.email_to_users(@user,@reservation,@staff).deliver
       redirect_to staff_reservations_path
     else
       render :new

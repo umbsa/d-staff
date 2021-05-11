@@ -1,8 +1,10 @@
 class VerificationMailer < ApplicationMailer
   default from: ENV["EMAIL_TO_USER_ADDRESS"]
 
-  def email_to_users(user)
+  def email_to_users(user,reservation,staff)
     @user = user
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+    @reservation = reservation
+    @staff = staff
+    mail(to: @user.email, subject: 'ご予約が確定いたしました')
   end
 end

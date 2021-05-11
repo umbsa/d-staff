@@ -1,3 +1,11 @@
- <%= @user.full_name %> 様
+ <%= @user.nickname %> さん
 
-○○への会員登録が完了しました。
+<p>いつも「d-staffs」をご利用いただきまして、誠にありがとうございます。</p>
+
+
+<p>ご予約が確定いたしました。</p>
+<p>※本メールは配信専用のため、ご返信いただきましても確認できません。</p>
+
+<p>来店日時: <%= @reservation.start_time.year %>年<%= @reservation.start_time.month %>月<%= @reservation.start_time.day %>日<%= @reservation.start_time.hour %>時<%= @reservation.start_time.min %>分</p>
+
+<p>配達スタッフ: <%= @staff.name %></p>
