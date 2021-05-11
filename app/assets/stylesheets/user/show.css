@@ -1,0 +1,11 @@
+.AccountPage{
+  border-bottom: 2px solid #f5f5f5;
+  margin-top: 15px;
+  padding-bottom: 30px;
+}
+
+.AccountPage__title {
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+}

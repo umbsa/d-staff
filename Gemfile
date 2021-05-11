@@ -67,3 +67,5 @@ gem 'active_hash'
 gem 'validates_timeliness', '~> 6.0.0.alpha1'
 
 gem 'rails-i18n'
+
+gem 'payjp'
