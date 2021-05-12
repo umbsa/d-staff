@@ -9,6 +9,10 @@
     <table class="detail-table">
       <tbody>
         <tr>
+          <th class="detail-item">名前</th>
+          <td class="detail-value"><%= @staff.name %></td>
+        </tr>
+        <tr>
           <th class="detail-item">配達員歴</th>
           <td class="detail-value"><%= @staff.history %></td>
         </tr>
@@ -30,6 +34,14 @@
       <span>指名して予約<span>
     </div>
     <% end %>
+    <% end %>
+    <% if user_signed_in? && current_user.admin %>
+      <div>
+        <%= link_to "編集", edit_staff_path(@staff.id), method: :get, class: "item-red-btn" %>
+      </div>
+      <div>
+        <%= link_to "削除", staff_path(@staff.id), method: :delete, class:"item-destroy" %>
+      </div>
     <% end %>
 
   </div>

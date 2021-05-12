@@ -27,6 +27,26 @@ class StaffsController < ApplicationController
     @staffs = Staff.search(params[:search])
   end
 
+  def edit
+    @staff = Staff.find(params[:id])
+  end
+
+  def update
+    @staff = Staff.find(params[:id])
+    if @staff.update(staff_params)
+      redirect_to staff_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @staff = Staff.find(params[:id])
+    if @staff.destroy
+      redirect_to root_path
+    end
+  end
+
   private
 
   def staff_params

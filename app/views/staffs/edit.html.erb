@@ -1,0 +1,68 @@
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('IMG_1757.PNG' , size: '185x70'), "/" %>
+
+  </header>
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">スタッフの情報を入力</h2>
+    <%= form_with model: @staff, local: true do |f| %> 
+    <%= render 'shared/error_messages', model: f.object %> 
+
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        スタッフ画像
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %> 
+      </div>
+    </div>
+
+    <div class="new-items">
+      <div class="weight-bold-text">
+        名前
+      </div>
+      <%= f.text_area :name, class:"items-text", id:"item-name", maxlength:"40" %>
+      <div class="weight-bold-text">
+        歴
+      </div>
+      <%= f.text_area :history, class:"items-text", id:"item-name", maxlength:"40" %>
+      <div class="items-explain">
+        <div class="weight-bold-text">
+          スタッフのコメント
+        </div>
+        <%= f.text_area :comment, class:"items-text", id:"item-info",rows:"7" ,maxlength:"1000" %>
+      </div>
+          <div class="items-explain">
+        <div class="weight-bold-text">
+          スタッフの趣味
+        </div>
+        <%= f.text_area :hobby, class:"items-text", id:"item-info",rows:"7" ,maxlength:"1000" %>
+      </div>
+
+    </div>
+
+    <div class="sell-btn-contents">
+      <%= f.submit "登録する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">d-staffs利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('IMG_1757.PNG' , size: '185x70'), "/" %>
+    <p class="inc">
+      ©︎d-staffs,Inc.
+    </p>
+  </footer>
+
+</div>

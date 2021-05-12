@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'reservations/index'
   devise_for :users
   root to: 'staffs#index'
-  resources :staffs, only: [:index, :new, :create, :show] do
+  resources :staffs, only: [:index, :new, :create, :show, :edit, :update, :destroy] do
     collection do
       get 'search'
     end

@@ -46,7 +46,7 @@
 
 .comment-btn{
   position: absolute;
-  top: 40vh;
+  top: 45vh;
   left: 5vw;
   background-color: #f18d9e;
   border: 1px solid #f18d9e;
@@ -58,3 +58,27 @@
   padding-left: 10px;
 }
 
+.item-red-btn {
+  top: 43vh;
+  left: 30vw;
+  position: absolute;
+  text-align: center;
+  background-color: #f18d9e;
+  font-size: 12px;
+  font-weight: bold;
+  color: #FFF;
+  margin: 10px 0px;
+  padding: 2vh 10vw;
+}
+
+.item-destroy {
+  top: 43vh;
+  left: 55vw;
+  position: absolute;
+  background-color: lightgray;
+  text-align: center;
+  font-size: 12px;
+  color: black;
+  margin: 10px 0px;
+  padding: 2vh 10vw;
+}
