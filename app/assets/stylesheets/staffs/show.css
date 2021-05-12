@@ -46,7 +46,7 @@
 
 .comment-btn{
   position: absolute;
-  top: 45vh;
+  top: 42vh;
   left: 5vw;
   background-color: #f18d9e;
   border: 1px solid #f18d9e;
@@ -59,8 +59,8 @@
 }
 
 .item-red-btn {
-  top: 43vh;
-  left: 30vw;
+  top: 51vh;
+  left: 20vw;
   position: absolute;
   text-align: center;
   background-color: #f18d9e;
@@ -72,8 +72,8 @@
 }
 
 .item-destroy {
-  top: 43vh;
-  left: 55vw;
+  top: 51vh;
+  left: 45vw;
   position: absolute;
   background-color: lightgray;
   text-align: center;

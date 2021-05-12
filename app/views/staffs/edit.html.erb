@@ -25,22 +25,26 @@
       <div class="weight-bold-text">
         名前
       </div>
-      <%= f.text_area :name, class:"items-text", id:"item-name", maxlength:"40" %>
+      <%= f.text_area :name, class:"items-text", id:"item-name", maxlength:"20" %>
       <div class="weight-bold-text">
         歴
       </div>
-      <%= f.text_area :history, class:"items-text", id:"item-name", maxlength:"40" %>
+      <%= f.text_area :history, class:"items-text", id:"item-name", maxlength:"20" %>
       <div class="items-explain">
         <div class="weight-bold-text">
           スタッフのコメント
         </div>
-        <%= f.text_area :comment, class:"items-text", id:"item-info",rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :comment, class:"items-text", id:"item-info",rows:"7" ,maxlength:"70" %>
       </div>
           <div class="items-explain">
         <div class="weight-bold-text">
           スタッフの趣味
         </div>
-        <%= f.text_area :hobby, class:"items-text", id:"item-info",rows:"7" ,maxlength:"1000" %>
+        <%= f.text_area :hobby, class:"items-text", id:"item-info",rows:"7" ,maxlength:"70" %>
+      <div class="weight-bold-text">
+        配達料
+      </div>
+      <%= f.text_area :price, class:"items-text", id:"item-name", maxlength:"10" %>
       </div>
 
     </div>

@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-  before_action :authenticate_user!, only: [:index, :new, :create, :edit, :destroy]
+  before_action :authenticate_user!
   before_action :set_staff, only: [:create, :edit]
 
   def index
@@ -32,5 +32,7 @@ class ReservationsController < ApplicationController
   def set_staff
     @staff = Staff.find(params[:staff_id])
   end
+
+
 end
 

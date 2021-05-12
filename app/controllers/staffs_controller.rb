@@ -1,6 +1,7 @@
 class StaffsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, only: [:new, :edit, :destroy, :update]
 
 
   def index
@@ -47,11 +48,17 @@ class StaffsController < ApplicationController
   private
 
   def staff_params
-    params.require(:staff).permit(:name, :history, :comment, :hobby, :image)
+    params.require(:staff).permit(:name, :history, :comment, :hobby, :image, :price)
   end
 
   def set_staff
     @staff = Staff.find(params[:id])
+  end
+
+  def move_to_index
+    unless current_user.admin
+      redirect_to action: :index
+    end
   end
 
 end

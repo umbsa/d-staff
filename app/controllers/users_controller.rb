@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :move_to_index
+
+
   def show
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     card = Card.find_by(user_id: current_user.id)
@@ -21,5 +25,12 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:nickname, :email)
+  end
+
+  def move_to_index
+    @user = User.find(params[:id])
+    if current_user.id != @user.id
+      redirect_to root_path
+    end
   end
 end

@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(version: 2021_05_11_065345) do
     t.string "history", null: false
     t.text "comment", null: false
     t.text "hobby", null: false
+    t.integer "price", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
