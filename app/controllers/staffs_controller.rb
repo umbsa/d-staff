@@ -1,5 +1,6 @@
 class StaffsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
+  before_action :set_staff, only: [:show, :edit, :update, :destroy]
 
 
   def index
@@ -20,7 +21,6 @@ class StaffsController < ApplicationController
   end
 
   def show
-    @staff = Staff.find(params[:id])
   end
 
   def search
@@ -28,11 +28,9 @@ class StaffsController < ApplicationController
   end
 
   def edit
-    @staff = Staff.find(params[:id])
   end
 
   def update
-    @staff = Staff.find(params[:id])
     if @staff.update(staff_params)
       redirect_to staff_path
     else
@@ -41,7 +39,6 @@ class StaffsController < ApplicationController
   end
 
   def destroy
-    @staff = Staff.find(params[:id])
     if @staff.destroy
       redirect_to root_path
     end
@@ -51,6 +48,10 @@ class StaffsController < ApplicationController
 
   def staff_params
     params.require(:staff).permit(:name, :history, :comment, :hobby, :image)
+  end
+
+  def set_staff
+    @staff = Staff.find(params[:id])
   end
 
 end
