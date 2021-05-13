@@ -1,0 +1,39 @@
+<%= render "shared/second-header" %>
+<div class="staff-show2">
+  <div class="staff-box">
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">お客様氏名</th>
+          <td class="detail-value"><%= @reservation.user.full_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">郵便番号</th>
+          <td class="detail-value"><%= @reservation.postal_code %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">都道府県</th>
+          <td class="detail-value"><%= @reservation.prefecture.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">市区町村</th>
+          <td class="detail-value"><%= @reservation.city %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">番地</th>
+          <td class="detail-value"><%= @reservation.addresses %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">ビル</th>
+          <td class="detail-value"><%= @reservation.building %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">電話番号</th>
+          <td class="detail-value"><%= @reservation.phone_number %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= render "shared/second-footer" %>

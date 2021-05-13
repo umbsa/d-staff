@@ -21,9 +21,12 @@ class ReservationsController < ApplicationController
       render :new
     end
   end
-  # staff_reservations_path
 
   def edit
+  end
+
+  def address
+    @reservation = Reservation.find(params[:staff_id])
   end
 
 

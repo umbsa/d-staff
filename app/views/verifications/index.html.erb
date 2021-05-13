@@ -8,7 +8,7 @@
     <% if current_user.id == reservation.user_id || current_user.admin %>
       <div>
         <%= reservation.start_time.hour %>:<%= reservation.start_time.min %>/<%= reservation.staff.name %>
-        <%= reservation.user.full_name %>様
+        <%= link_to reservation.user.full_name, address_staff_reservations_path(reservation) %>様
       </div>
     <% end %>
   <% end %>

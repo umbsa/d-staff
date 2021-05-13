@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     end
     post 'order', on: :member
     get 'credit', on: :member
-    resources :reservations, only: [:index, :new, :create, :edit]
+    resources :reservations, only: [:index, :new, :create, :edit] do
+      get 'address', on: :collection
+    end
   end
   resources :verifications, only: [:index]
 
