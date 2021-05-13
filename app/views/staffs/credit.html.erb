@@ -1,0 +1,11 @@
+<%= render "shared/second-header" %>
+<div class='staff-contents'>
+  <div>現金でのお支払いをご希望のお客様は、当日にスタッフに直接お渡しください</div>
+
+  <div class='credit-link'>クレジットでのお支払いをご希望のお客様はこちらから
+    <%= link_to '購入を確定', order_staff_path(@staff.id), method: :post %>
+  </div>
+
+</div>
+
+<%= render "shared/second-footer" %>

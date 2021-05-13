@@ -3,6 +3,7 @@ class Staff < ApplicationRecord
 
   has_many :verifications
   has_many :reservations
+  has_one :staff_order
 
 
   with_options presence: true do

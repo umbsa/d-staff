@@ -1,6 +1,6 @@
 class ReservationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_staff, only: [:create, :edit]
+  before_action :set_staff, only: [:create, :edit, :order]
 
   def index
     @reservations = Reservation.all
@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @staff = Staff.find(params[:staff_id])
   end
 
   def create
@@ -15,14 +16,16 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new(reservation_params)
     if @reservation.save
       VerificationMailer.email_to_users(@user,@reservation,@staff).deliver
-      redirect_to staff_reservations_path
+      redirect_to credit_staff_path(@staff)
     else
       render :new
     end
   end
+  # staff_reservations_path
 
   def edit
   end
+
 
   private
   def reservation_params

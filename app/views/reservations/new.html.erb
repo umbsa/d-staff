@@ -75,6 +75,7 @@
     <%# /配送先の入力 %>
 
   <div class="register-btn2">
+    <%= link_to '購入する', order_staff_path(@staff.id), method: :post %>
     <%= form.submit '送信',class:"register-red-btn2" %>
   </div>
 
@@ -82,3 +83,5 @@
 
 
 <%= render "shared/second-footer" %>
+
+ <%# <%= form.submit '送信',class:"register-red-btn2" %> %>

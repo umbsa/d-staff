@@ -1,6 +1,6 @@
 class VerificationsController < ApplicationController
   before_action :authenticate_user!
-  before_action :move_to_index
+  before_action :move_to_index, only: :index
 
   def index
     @reservations = Reservation.all

@@ -8,9 +8,11 @@ Rails.application.routes.draw do
     collection do
       get 'search'
     end
+    post 'order', on: :member
+    get 'credit', on: :member
     resources :reservations, only: [:index, :new, :create, :edit]
   end
-  resources :verifications, only: :index
+  resources :verifications, only: [:index]
 
   resources :users, only: [:show, :update]
   resources :cards, only: [:new, :create]
