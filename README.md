@@ -7,55 +7,71 @@
 | nickname           | string  | null: false,              |
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
-| name               | string  | null: false               |
-| name_kana          | string  | null: false               |
+| full_name          | string  | null: false               |
+| full_name_kana     | string  | null: false               |
 | user_birth_date    | date    | null: false               |
 
 ### Association
 
-- has_one :staff
+- has_many :verifications
+- has_many :reservations
+- has_one :card, dependent: :destroy
 
 ## staffs テーブル
 
 | Column                | Type       | Options                        |
 | --------------------- | ---------- | ------------------------------ |
 | name                  | string     | null: false                    |
-| comment               | text       | null: false                    |
-| record                | string     | null: false                    |
+| history               | text       | null: false                    |
+| comment               | string     | null: false                    |
 | hobby                 | text       | null: false                    |
-| user                  | references | null: false, foreign_key: true |
+| price                 | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :user
-- has_one    :order
+- has_many :verifications
+- has_many :reservations
+- has_one :staff_order
 
-## orders テーブル
+## staff_orders テーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
 | staff  | references | null: false, foreign_key: true |
 
 
 ### Association
 
-- belongs_to :user
 - belongs_to :staff
-- has_one    :input
 
-## inputs テーブル
+
+## reservations テーブル
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
+| start_time    | datetime   |                                |
 | postal_code   | string     | null: false                    |
 | prefecture_id | integer    | null: false                    |
 | city          | string     | null: false                    |
 | addresses     | string     | null: false                    |
 | building      | string     |                                |
 | phone_number  | string     | null: false                    |
-| order         | references | null: false, foreign_key: true |
+| staff         | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :order
+- belongs_to :staff
+- belongs_to :user
+
+## cards テーブル
+
+| Column                | Type       | Options                        |
+| --------------------- | ---------- | ------------------------------ |
+| card_token            | string     | null: false                    |
+| customer_token        | string     | null: false                    |
+| user                  | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
