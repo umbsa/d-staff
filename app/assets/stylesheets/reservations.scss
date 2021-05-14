@@ -35,3 +35,29 @@
   font-weight: lighter;
   font-size: 20px;
 }
+
+.staff-box2 {
+  background-color: #ffffff;
+  margin: 10vh 10vw;
+  // border: tomato 3px solid; */
+  width: 100vw;
+  height: 80vh;
+  position: relative;
+}
+
+.detail-table2{
+  // border: black solid 2px; */
+  position: absolute;
+  right: 10vw;
+  left: 20vw;
+  
+}
+
+.detail-item {
+  width: 20%;
+  border-bottom: 1px solid #dedede;
+  /* background-color: #eee; */
+  font-size: 15px;
+  text-align: center;
+  padding: 20px;
+}

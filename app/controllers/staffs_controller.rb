@@ -47,7 +47,7 @@ class StaffsController < ApplicationController
 
   def order
     @staff = Staff.find(params[:id])
-    redirect_to new_card_path and return unless current_user.card.present?
+    redirect_to newcard_card_path(@staff) and return unless current_user.card.present?
 
     Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
     customer_token = current_user.card.customer_token # ログインしているユーザーの顧客トークンを定義

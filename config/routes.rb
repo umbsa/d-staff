@@ -17,5 +17,8 @@ Rails.application.routes.draw do
   resources :verifications, only: [:index]
 
   resources :users, only: [:show, :update]
-  resources :cards, only: [:new, :create]
+  resources :cards, only: [:new, :create] do
+    get 'newcard', on: :member
+    post 'createcard', on: :member
+  end
 end

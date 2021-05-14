@@ -1,9 +1,19 @@
 <%= render "shared/second-header" %>
 <div class='staff-contents'>
-  <div>現金でのお支払いをご希望のお客様は、当日にスタッフに直接お渡しください</div>
+  <div>現金でのお支払いをご希望のお客様は、当日にスタッフに直接お渡しください
+    <%= link_to 'トップページへ', root_path %>
+  </div>
+
 
   <div class='credit-link'>クレジットでのお支払いをご希望のお客様はこちらから
-    <%= link_to '購入を確定', order_staff_path(@staff.id), method: :post %>
+    <% if current_user.card.present? %>
+      <%= link_to '購入を確定', order_staff_path(@staff.id), method: :post %>
+    <% end %>
+  </div>
+
+  <div>
+    クレジットカードの登録がお済みでない方はこちらからご登録ください
+    <%= link_to 'カード登録', newcard_card_path(@staff) %>
   </div>
 
 </div>
