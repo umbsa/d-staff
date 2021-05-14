@@ -1,7 +1,7 @@
 class StaffsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update]
+  before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :order, :credit]
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:new, :edit, :destroy, :update]
+  before_action :move_to_index, only: [:new, :edit, :destroy, :update, :order]
 
 
   def index
