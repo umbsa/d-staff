@@ -32,12 +32,14 @@
     </table>
 
     <%= link_to new_staff_reservation_path(@staff) do %>
-    <% if user_signed_in? %>
-    <div class="comment-btn">
-      <%= image_tag "IMG_1766.PNG" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-      <span>指名して予約<span>
-    </div>
-    <% end %>
+      <% if user_signed_in? %>
+        <% unless current_user.admin %>
+          <div class="comment-btn">
+            <%= image_tag "IMG_1766.PNG" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+            <span>指名して予約<span>
+          </div>
+        <% end %>
+      <% end %>
     <% end %>
     <% if user_signed_in? && current_user.admin %>
       <div>
