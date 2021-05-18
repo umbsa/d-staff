@@ -12,6 +12,8 @@ ja:
         name: 名前
         comment: コメント
         history: 歴
+        price: 配達料
+        hobby: 趣味
       reservation: 
         postal_code: 郵便番号
         prefecture_id: 都道府県
