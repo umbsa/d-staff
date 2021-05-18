@@ -1,7 +1,7 @@
 class StaffsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy, :edit, :update, :order, :credit]
   before_action :set_staff, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, only: [:new, :edit, :destroy, :update, :order]
+  before_action :move_to_index, only: [:new, :edit, :destroy, :update]
 
 
   def index
@@ -47,14 +47,13 @@ class StaffsController < ApplicationController
 
   def order
     @staff = Staff.find(params[:id])
-    # redirect_to newcard_card_path(@staff) and return unless current_user.card.present?
 
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"] # 環境変数を読み込む
-    customer_token = current_user.card.customer_token # ログインしているユーザーの顧客トークンを定義
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    customer_token = current_user.card.customer_token
     Payjp::Charge.create(
-      amount: @staff.price, # 商品の値段
-      customer: customer_token, # 顧客のトークン
-      currency: 'jpy' # 通貨の種類（日本円）
+      amount: @staff.price,
+      customer: customer_token,
+      currency: 'jpy'
     )
 
     StaffOrder.create(staff_id: params[:id])
