@@ -12,8 +12,8 @@ d-staff
 ## URL
 
 ## テスト用アカウント
-Basic認証のID/Pass sato/2233
-管理者アカウントのEmail/Pass admin@example/1234567a
+Basic認証のID/Pass sato/2233 
+管理者アカウントのEmail/Pass admin@example/1234567a 
 クレジットカードのテスト番号/CVC/有効期限 4242424242424242/123/今よりも未来
 
 ## 具体的な利用方法
