@@ -159,6 +159,12 @@ Basic認証のID/Pass sato/2233
 - belongs_to :user
 
 ## ER図
-<img width="500" src="d-staff.png">
+https://gyazo.com/95326d2f880fc3c7f8ca631cc1d6b66c
 
+## ローカルでの動作方法
+以下の手順で動作できるかと思います。  
+
+% git clone https://github.com/umbsa/d-staff.git % cd d-staff % bundle install % rails db:create % rails db:migrate % rails db:seed  
+
+railsはバージョン6.0.0を使用しています
 
